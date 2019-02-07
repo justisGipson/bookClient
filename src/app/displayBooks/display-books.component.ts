@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Input} from '@angular/core';
 
 @Component({
@@ -7,8 +7,12 @@ import {Input} from '@angular/core';
     styleUrls: ['./display-books.component.css']
 })
 
-export class DisplayBooksComponent {
+export class DisplayBooksComponent implements OnInit{
     public _book = {};
+    ratings = ['★', '★★', '★★★', '★★★★', '★★★★★'];
+    ngOnInit(){
+        this._book['rating'] = this.ratings[this._book['rating'] - 1]
+    }
 
     @Input() set book(book: any) {
         this._book = book;

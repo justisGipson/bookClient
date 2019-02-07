@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DisplayBooksComponent } from './displayBooks/display-books.component';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { DatabaseService } from './services/database.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import { CreateBookComponent } from './create-book/create-book.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatabaseService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

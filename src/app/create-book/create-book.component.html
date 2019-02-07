@@ -16,12 +16,8 @@
   <label for='genre'>Genre</label>
   <select 
     formControlName='genre' 
-    name='genre' r
-    equired>
-      <option>Fiction</option>
-      <option>Nonfiction</option>
-      <option>Comic</option>
-      <option>Cookbook</option>
+    name='genre' required>
+      <option *ngFor='let g of genres' value='{{ g }}'>{{ g }}</option>
   </select>
   <label for='pubYear'>Publication Year</label>
   <input 
@@ -33,11 +29,7 @@
     formControlName='rating' 
     name='rating' 
     required>
-      <option>1 Stars</option>
-      <option>2 Stars</option>
-      <option>3 Stars</option>
-      <option>4 Stars</option>
-      <option>5 Stars</option>
+      <option *ngFor='let rating of ratings' value='{{ rating.value }}'>{{ rating.view }}</option>
   </select>
   <button [disabled]='!useBtn' type="submit">{{ useBtn === false ? "Think About a Book" : "Add Book"}}</button>
 </form>
@@ -48,6 +40,3 @@
   [book]='book'
   ></app-display-books>
 </div>
-<ng-template #noBook>
-  <p>No Book Created</p>
-</ng-template>
